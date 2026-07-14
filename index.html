@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Darles Games создаёт интерактивные веб-продукты и браузерные игры для личных событий, сообществ и бизнеса.">
+  <meta name="description" content="Darles Games создаёт браузерные видеоигры, игровые механики, прототипы и интерактивные веб-продукты для людей, сообществ и бизнеса.">
   <meta name="theme-color" content="#0b0418">
-  <meta property="og:title" content="Darles Games — веб-продукты и игры">
-  <meta property="og:description" content="Поздравления, тесты, приглашения, мини-игры и авторские игровые проекты для частных клиентов, сообществ и бизнеса.">
+  <meta property="og:title" content="Darles Games — игры и игровые механики">
+  <meta property="og:description" content="Браузерные игры, прототипы и веб-продукты с игровыми механиками для развлечения, событий, сообществ и бизнеса.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/darles-games-logo.png">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>Darles Games — веб-продукты и игры</title>
+  <title>Darles Games — игры и игровые механики</title>
 </head>
 <body>
   <canvas id="magic-canvas" aria-hidden="true"></canvas>
@@ -29,9 +29,16 @@
     </button>
 
     <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
-      <a href="#web-products" data-i18n="navProducts">Поздравления и тесты</a>
       <a href="#games" data-i18n="navGames">Игры</a>
+      <a href="#web-products" data-i18n="navProducts">Веб-продукты</a>
+      <a href="#use-cases" data-i18n="navUseCases">Для чего</a>
       <a href="#approach" data-i18n="navApproach">Как работаем</a>
+      <a href="#terms" data-i18n="navTerms">Условия и FAQ</a>
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" data-language="ru" aria-label="Русский язык">RU</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-language="en" aria-label="English language">EN</button>
+      </div>
       <a class="nav-cta" href="#contact" data-i18n="navContact">Связаться</a>
     </nav>
   </header>
@@ -39,66 +46,189 @@
   <main>
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="spark-dot"></span><span data-i18n="heroEyebrow">Студия интерактивных веб-проектов</span></p>
-        <h1 id="hero-title" data-i18n="heroTitle">Интерактивные веб-продукты и игры для людей, событий и бизнеса</h1>
-        <p class="hero-lead" data-i18n="heroLead">Создаём проекты на заказ для частных клиентов, праздников, сообществ и бизнеса. Они открываются по обычной ссылке и работают на телефоне и компьютере.</p>
+        <p class="eyebrow"><span class="spark-dot"></span><span data-i18n="heroEyebrow">Независимая студия веб-игр</span></p>
+        <h1 id="hero-title" data-i18n="heroTitle">Видеоигры и игровые механики для разных задач</h1>
+        <p class="hero-lead" data-i18n="heroLead">Darles Games создаёт браузерные игры, игровые прототипы и интерактивные веб-продукты — для развлечения, личных событий, сообществ, презентаций и продвижения.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#web-products" data-i18n="heroPrimary">Посмотреть услуги</a>
+          <a class="button button-primary" href="#games" data-i18n="heroPrimary">Игры и решения</a>
           <a class="button button-secondary" href="#contact" data-i18n="heroSecondary">Обсудить задачу</a>
         </div>
-        <ul class="hero-facts" aria-label="Преимущества">
-          <li><strong data-i18n="fact1Title">Для близких</strong><span data-i18n="fact1Text">Подарки и события</span></li>
-          <li><strong data-i18n="fact2Title">Для сообществ</strong><span data-i18n="fact2Text">Тесты и активности</span></li>
-          <li><strong data-i18n="fact3Title">Для бизнеса</strong><span data-i18n="fact3Text">Промо и мини-игры</span></li>
+        <p class="hero-note"><span aria-hidden="true">✦</span><span data-i18n="heroNote">От отдельной механики до полноценного проекта, который открывается по ссылке.</span></p>
+        <ul class="hero-facts" aria-label="Основные направления">
+          <li><strong data-i18n="fact1Title">Авторские игры</strong><span data-i18n="fact1Text">Собственные миры и механики</span></li>
+          <li><strong data-i18n="fact2Title">Прототипы и MVP</strong><span data-i18n="fact2Text">Проверка игровых идей</span></li>
+          <li><strong data-i18n="fact3Title">Интерактивные продукты</strong><span data-i18n="fact3Text">Для людей и организаций</span></li>
         </ul>
+      </div>
+      <div class="hero-sigil" aria-hidden="true">
+        <span class="sigil-ring"></span>
+        <span class="sigil-mark">✦</span>
       </div>
     </section>
 
-    <section class="trust-strip" aria-label="Технологии">
-      <div>HTML5</div><span>✦</span><div data-i18n="trustMechanics">Игровые механики</div><span>✦</span><div data-i18n="trustDesign">Интерактивный дизайн</div><span>✦</span><div data-i18n="trustResponsive">Адаптивная вёрстка</div>
+    <section class="trust-strip" aria-label="Преимущества">
+      <div data-i18n="trustGameFirst">Игровой подход</div><span>✦</span>
+      <div data-i18n="trustLink">Работает в браузере</div><span>✦</span>
+      <div data-i18n="trustResponsive">Телефон и компьютер</div><span>✦</span>
+      <div data-i18n="trustCustom">Под конкретную задачу</div>
     </section>
 
-    <section class="catalog section-shell" id="web-products" aria-labelledby="products-title">
+    <div class="arcane-divider" aria-hidden="true"><span>✦</span></div>
+
+    <section class="use-cases section-shell" id="use-cases" aria-labelledby="use-cases-title">
       <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="productsEyebrow">Направление 01</p>
-        <h2 id="products-title" data-i18n="productsTitle">Поздравления, тесты и приглашения</h2>
-        <p data-i18n="productsLead">Персональные веб-проекты для близких, праздников, событий и сообществ.</p>
+        <p class="eyebrow" data-i18n="useCasesEyebrow">Задачи</p>
+        <h2 id="use-cases-title" data-i18n="useCasesTitle">Для чего нужны игры и игровые механики</h2>
+        <p data-i18n="useCasesLead">Игровой подход помогает не просто показать информацию, а вовлечь человека в действие, объяснить идею и создать запоминающийся опыт.</p>
+      </div>
+      <div class="use-case-grid">
+        <article class="use-case-card reveal">
+          <span class="use-case-icon" aria-hidden="true">◈</span>
+          <h3 data-i18n="useCase1Title">Привлечь внимание</h3>
+          <p data-i18n="useCase1Text">Интерактивная механика превращает просмотр в действие и помогает удержать интерес пользователя.</p>
+        </article>
+        <article class="use-case-card reveal">
+          <span class="use-case-icon" aria-hidden="true">⌁</span>
+          <h3 data-i18n="useCase2Title">Объяснить и показать</h3>
+          <p data-i18n="useCase2Text">Игра или симуляция может наглядно представить продукт, идею, правила или сложный процесс.</p>
+        </article>
+        <article class="use-case-card reveal">
+          <span class="use-case-icon" aria-hidden="true">◇</span>
+          <h3 data-i18n="useCase3Title">Создать впечатление</h3>
+          <p data-i18n="useCase3Text">Персональный интерактивный проект делает подарок, событие или презентацию более эмоциональными.</p>
+        </article>
+        <article class="use-case-card reveal">
+          <span class="use-case-icon" aria-hidden="true">⬡</span>
+          <h3 data-i18n="useCase4Title">Проверить идею</h3>
+          <p data-i18n="useCase4Text">Игровой прототип позволяет быстро оценить механику и направление до разработки большого проекта.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="arcane-divider" aria-hidden="true"><span>ᛟ</span></div>
+
+    <section class="catalog section-shell games-section" id="games" aria-labelledby="games-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="gamesEyebrow">Игры и разработка</p>
+        <h2 id="games-title" data-i18n="gamesTitle">Игры и игровые решения</h2>
+        <p data-i18n="gamesLead">От проверки отдельной механики до самостоятельной браузерной игры с собственным стилем, прогрессом и подготовкой к публикации.</p>
+      </div>
+      <div class="card-grid" id="games-grid"></div>
+    </section>
+
+    <div class="arcane-divider" aria-hidden="true"><span>✦</span></div>
+
+    <section class="catalog section-shell products-section" id="web-products" aria-labelledby="products-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="productsEyebrow">Интерактивные веб-продукты</p>
+        <h2 id="products-title" data-i18n="productsTitle">Веб-продукты с игровыми механиками</h2>
+        <p data-i18n="productsLead">Проекты для личных событий, сообществ, обучения, презентаций и продвижения — с интерактивом, сюжетом, выбором или игровым действием.</p>
       </div>
       <div class="card-grid" id="product-grid"></div>
     </section>
 
-    <section class="catalog section-shell games-section" id="games" aria-labelledby="games-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="gamesEyebrow">Направление 02</p>
-        <h2 id="games-title" data-i18n="gamesTitle">Игры и игровые решения</h2>
-        <p data-i18n="gamesLead">Мини-игры, прототипы механик и авторские браузерные проекты для частных и коммерческих задач.</p>
-      </div>
-      <div class="card-grid" id="games-grid"></div>
-    </section>
+    <div class="arcane-divider" aria-hidden="true"><span>ᚱ</span></div>
 
     <section class="value-section section-shell" id="approach" aria-labelledby="approach-title">
       <div class="section-heading reveal">
         <p class="eyebrow" data-i18n="approachEyebrow">Процесс</p>
         <h2 id="approach-title" data-i18n="approachTitle">Как проходит работа над проектом</h2>
       </div>
-      <div class="steps">
+      <div class="steps steps-four">
         <article class="step reveal">
-          <span>01</span>
+          <span aria-hidden="true">◇</span>
           <h3 data-i18n="step1Title">Фиксируем задачу</h3>
-          <p data-i18n="step1Text">Определяем аудиторию, цель, формат и действие пользователя.</p>
+          <p data-i18n="step1Text">Определяем цель проекта, состав функций, сроки, стоимость и границы правок.</p>
         </article>
         <article class="step reveal">
-          <span>02</span>
-          <h3 data-i18n="step2Title">Создаём интерактив</h3>
-          <p data-i18n="step2Text">Собираем механику, визуальный стиль и адаптацию под устройства.</p>
+          <span aria-hidden="true">✦</span>
+          <h3 data-i18n="step2Title">Создаём первую версию</h3>
+          <p data-i18n="step2Text">Собираем основную механику, визуальное направление и адаптацию под устройства.</p>
         </article>
         <article class="step reveal">
-          <span>03</span>
-          <h3 data-i18n="step3Title">Публикуем</h3>
-          <p data-i18n="step3Text">Передаём готовую веб-версию и ссылку для использования.</p>
+          <span aria-hidden="true">⌁</span>
+          <h3 data-i18n="step3Title">Согласовываем развитие</h3>
+          <p data-i18n="step3Text">Показываем рабочие версии, собираем обратную связь и уточняем следующий этап.</p>
+        </article>
+        <article class="step reveal">
+          <span aria-hidden="true">⬡</span>
+          <h3 data-i18n="step4Title">Передаём результат</h3>
+          <p data-i18n="step4Text">После финального согласования передаём продукт в выбранном формате или помогаем с публикацией.</p>
         </article>
       </div>
     </section>
+
+    <div class="arcane-divider" aria-hidden="true"><span>ᛉ</span></div>
+
+    <section class="terms-section section-shell" id="terms" aria-labelledby="terms-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="termsEyebrow">Стоимость и условия</p>
+        <h2 id="terms-title" data-i18n="termsTitle">Гибкие условия под задачу и масштаб проекта</h2>
+        <p data-i18n="termsLead">Перед началом работы согласуем объём, сроки, стоимость, правки, подходящую схему оплаты и формат передачи результата.</p>
+      </div>
+
+      <div class="terms-grid">
+        <article class="term-card reveal">
+          <span aria-hidden="true">◈</span>
+          <h3 data-i18n="term1Title">Индивидуальная оценка</h3>
+          <p data-i18n="term1Text">Стоимость зависит от механик, контента, дизайна, сроков и требований к публикации.</p>
+        </article>
+        <article class="term-card reveal">
+          <span aria-hidden="true">◇</span>
+          <h3 data-i18n="term2Title">Гибкая схема оплаты</h3>
+          <p data-i18n="term2Text">Формат оплаты выбирается с учётом объёма, длительности и структуры конкретного проекта.</p>
+        </article>
+        <article class="term-card reveal">
+          <span aria-hidden="true">⌁</span>
+          <h3 data-i18n="term3Title">Промежуточные версии</h3>
+          <p data-i18n="term3Text">Клиент видит рабочие версии проекта и может контролировать результат по мере разработки.</p>
+        </article>
+        <article class="term-card reveal">
+          <span aria-hidden="true">⬡</span>
+          <h3 data-i18n="term4Title">Финальная передача</h3>
+          <p data-i18n="term4Text">Готовая версия и согласованные материалы передаются после полного расчёта. Исходники включаются только по договорённости.</p>
+        </article>
+      </div>
+
+      <div class="faq-block reveal" aria-labelledby="faq-title">
+        <div class="faq-heading">
+          <p class="eyebrow" data-i18n="faqEyebrow">FAQ</p>
+          <h2 id="faq-title" data-i18n="faqTitle">Частые вопросы</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="faq1Question">Что можно заказать?</summary>
+            <p data-i18n="faq1Answer">Браузерную игру, игровой прототип, отдельную механику, интерактивный веб-продукт, тест, квиз, приглашение или персональный проект.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq2Question">Как рассчитывается стоимость?</summary>
+            <p data-i18n="faq2Answer">После краткого обсуждения оцениваются механики, объём контента, дизайн, сроки и формат публикации. Итоговая сумма фиксируется до начала работы.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq3Question">Как проходит оплата?</summary>
+            <p data-i18n="faq3Answer">Схема зависит от объёма и длительности проекта. До старта согласуются подходящий формат оплаты, этапы и финальный расчёт.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq4Question">Как контролируется результат?</summary>
+            <p data-i18n="faq4Answer">До старта фиксируются задача, сроки и ожидаемый результат. Во время разработки клиент получает промежуточные версии и видит текущее состояние проекта.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq5Question">Что передаётся после завершения?</summary>
+            <p data-i18n="faq5Answer">Опубликованная веб-версия, ZIP-сборка, версия для выбранной площадки или другие заранее согласованные материалы.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq6Question">Можно ли вносить изменения?</summary>
+            <p data-i18n="faq6Answer">Да. Количество включённых правок и границы изменений фиксируются перед началом разработки.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq7Question">Можно ли работать с клиентами из других стран?</summary>
+            <p data-i18n="faq7Answer">Да. Язык проекта, валюта, способ оплаты и формат передачи согласуются индивидуально.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="arcane-divider" aria-hidden="true"><span>✦</span></div>
 
     <section class="contact-section section-shell" id="contact" aria-labelledby="contact-title">
       <div class="contact-copy reveal">
@@ -112,13 +242,13 @@
           <span class="contact-rune" aria-hidden="true">✦</span>
           <div>
             <h3 data-i18n="contactCardTitle">Что указать в сообщении</h3>
-            <p data-i18n="contactCardLead">Это поможет быстрее оценить задачу и предложить формат.</p>
+            <p data-i18n="contactCardLead">Это поможет быстрее оценить задачу и предложить подходящий формат.</p>
           </div>
         </div>
 
         <ul class="contact-points">
-          <li data-i18n="contactPoint1">Какой продукт или игровая механика нужна</li>
-          <li data-i18n="contactPoint2">Для кого создаётся и какую задачу решает</li>
+          <li data-i18n="contactPoint1">Какая игра, механика или веб-продукт нужны</li>
+          <li data-i18n="contactPoint2">Для кого создаётся проект и какую задачу он решает</li>
           <li data-i18n="contactPoint3">Желаемый срок, примеры и важные ограничения</li>
         </ul>
 
@@ -131,7 +261,7 @@
   <footer class="site-footer">
     <div class="footer-brand">
       <img src="assets/images/darles-games-logo.png" alt="">
-      <div><strong>Darles Games</strong><span data-i18n="footerTagline">Веб-продукты и игры</span></div>
+      <div><strong>Darles Games</strong><span data-i18n="footerTagline">Игры и интерактивные веб-продукты</span></div>
     </div>
     <p>© <span id="current-year"></span> Darles Games.</p>
     <a href="#top" data-back-to-top data-i18n="backToTop">Наверх ↑</a>
@@ -145,9 +275,9 @@
       </div>
       <h3></h3>
       <p class="card-description"></p>
-      <div class="card-offer">
-        <strong class="card-price"></strong>
-        <span class="card-duration"></span>
+      <div class="card-timing">
+        <span class="card-timing-label"></span>
+        <strong class="card-duration"></strong>
       </div>
       <ul class="tag-list"></ul>
       <a class="card-link" href="#contact"><span></span><b>→</b></a>
