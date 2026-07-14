@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Darles Games создаёт интерактивные веб-продукты и браузерные игры для личных событий, сообществ и бизнеса.">
+  <meta name="theme-color" content="#0b0418">
+  <meta property="og:title" content="Darles Games — веб-продукты и игры">
+  <meta property="og:description" content="Поздравления, тесты, приглашения, мини-игры и авторские игровые проекты для частных клиентов, сообществ и бизнеса.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/darles-games-logo.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Darles Games — веб-продукты и игры</title>
+</head>
+<body>
+  <canvas id="magic-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Darles Games">
+      <img src="assets/images/darles-games-logo.png" alt="Darles Games">
+      <span>Darles Games</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only" data-i18n="menuOpen">Открыть меню</span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="#web-products" data-i18n="navProducts">Поздравления и тесты</a>
+      <a href="#games" data-i18n="navGames">Игры</a>
+      <a href="#approach" data-i18n="navApproach">Как работаем</a>
+      <a class="nav-cta" href="#contact" data-i18n="navContact">Связаться</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="spark-dot"></span><span data-i18n="heroEyebrow">Студия интерактивных веб-проектов</span></p>
+        <h1 id="hero-title" data-i18n="heroTitle">Интерактивные веб-продукты и игры для людей, событий и бизнеса</h1>
+        <p class="hero-lead" data-i18n="heroLead">Создаём проекты на заказ для частных клиентов, праздников, сообществ и бизнеса. Они открываются по обычной ссылке и работают на телефоне и компьютере.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#web-products" data-i18n="heroPrimary">Посмотреть услуги</a>
+          <a class="button button-secondary" href="#contact" data-i18n="heroSecondary">Обсудить задачу</a>
+        </div>
+        <ul class="hero-facts" aria-label="Преимущества">
+          <li><strong data-i18n="fact1Title">Для близких</strong><span data-i18n="fact1Text">Подарки и события</span></li>
+          <li><strong data-i18n="fact2Title">Для сообществ</strong><span data-i18n="fact2Text">Тесты и активности</span></li>
+          <li><strong data-i18n="fact3Title">Для бизнеса</strong><span data-i18n="fact3Text">Промо и мини-игры</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Технологии">
+      <div>HTML5</div><span>✦</span><div data-i18n="trustMechanics">Игровые механики</div><span>✦</span><div data-i18n="trustDesign">Интерактивный дизайн</div><span>✦</span><div data-i18n="trustResponsive">Адаптивная вёрстка</div>
+    </section>
+
+    <section class="catalog section-shell" id="web-products" aria-labelledby="products-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="productsEyebrow">Направление 01</p>
+        <h2 id="products-title" data-i18n="productsTitle">Поздравления, тесты и приглашения</h2>
+        <p data-i18n="productsLead">Персональные веб-проекты для близких, праздников, событий и сообществ.</p>
+      </div>
+      <div class="card-grid" id="product-grid"></div>
+    </section>
+
+    <section class="catalog section-shell games-section" id="games" aria-labelledby="games-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="gamesEyebrow">Направление 02</p>
+        <h2 id="games-title" data-i18n="gamesTitle">Игры и игровые решения</h2>
+        <p data-i18n="gamesLead">Мини-игры, прототипы механик и авторские браузерные проекты для частных и коммерческих задач.</p>
+      </div>
+      <div class="card-grid" id="games-grid"></div>
+    </section>
+
+    <section class="value-section section-shell" id="approach" aria-labelledby="approach-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-i18n="approachEyebrow">Процесс</p>
+        <h2 id="approach-title" data-i18n="approachTitle">Как проходит работа над проектом</h2>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span>01</span>
+          <h3 data-i18n="step1Title">Фиксируем задачу</h3>
+          <p data-i18n="step1Text">Определяем аудиторию, цель, формат и действие пользователя.</p>
+        </article>
+        <article class="step reveal">
+          <span>02</span>
+          <h3 data-i18n="step2Title">Создаём интерактив</h3>
+          <p data-i18n="step2Text">Собираем механику, визуальный стиль и адаптацию под устройства.</p>
+        </article>
+        <article class="step reveal">
+          <span>03</span>
+          <h3 data-i18n="step3Title">Публикуем</h3>
+          <p data-i18n="step3Text">Передаём готовую веб-версию и ссылку для использования.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section section-shell" id="contact" aria-labelledby="contact-title">
+      <div class="contact-copy reveal">
+        <p class="eyebrow" data-i18n="contactEyebrow">Связь</p>
+        <h2 id="contact-title" data-i18n="contactTitle">Обсудим ваш проект</h2>
+        <p data-i18n="contactLead">Напишите удобным способом. Для первого сообщения достаточно нескольких деталей.</p>
+      </div>
+
+      <div class="contact-card reveal">
+        <div class="contact-card-head">
+          <span class="contact-rune" aria-hidden="true">✦</span>
+          <div>
+            <h3 data-i18n="contactCardTitle">Что указать в сообщении</h3>
+            <p data-i18n="contactCardLead">Это поможет быстрее оценить задачу и предложить формат.</p>
+          </div>
+        </div>
+
+        <ul class="contact-points">
+          <li data-i18n="contactPoint1">Какой продукт или игровая механика нужна</li>
+          <li data-i18n="contactPoint2">Для кого создаётся и какую задачу решает</li>
+          <li data-i18n="contactPoint3">Желаемый срок, примеры и важные ограничения</li>
+        </ul>
+
+        <div class="contact-links" id="contact-links" aria-label="Контакты"></div>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="assets/images/darles-games-logo.png" alt="">
+      <div><strong>Darles Games</strong><span data-i18n="footerTagline">Веб-продукты и игры</span></div>
+    </div>
+    <p>© <span id="current-year"></span> Darles Games.</p>
+    <a href="#top" data-back-to-top data-i18n="backToTop">Наверх ↑</a>
+  </footer>
+
+  <template id="product-card-template">
+    <article class="product-card reveal">
+      <div class="card-topline">
+        <span class="card-icon"></span>
+        <span class="card-status"></span>
+      </div>
+      <h3></h3>
+      <p class="card-description"></p>
+      <div class="card-offer">
+        <strong class="card-price"></strong>
+        <span class="card-duration"></span>
+      </div>
+      <ul class="tag-list"></ul>
+      <a class="card-link" href="#contact"><span></span><b>→</b></a>
+    </article>
+  </template>
+
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
