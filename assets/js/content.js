@@ -11,8 +11,8 @@ window.DARLES_SITE = {
     metaDescription: "Darles Games создаёт браузерные видеоигры, игровые механики, прототипы и интерактивные веб-продукты для людей, сообществ и бизнеса.",
     translations: {
       menuOpen: "Открыть меню",
-      navGames: "Игры",
-      navProducts: "Веб-продукты",
+      navServices: "Услуги",
+      navProjects: "Наши продукты",
       navUseCases: "Для чего",
       navApproach: "Как работаем",
       navTerms: "Условия и FAQ",
@@ -22,7 +22,7 @@ window.DARLES_SITE = {
       heroTitle: "Видеоигры и игровые механики для разных задач",
       heroLead: "Darles Games создаёт браузерные игры, игровые прототипы и интерактивные веб-продукты — для развлечения, личных событий, сообществ, презентаций и продвижения.",
       heroNote: "От отдельной механики до полноценного проекта, который открывается по ссылке.",
-      heroPrimary: "Игры и решения",
+      heroPrimary: "Услуги",
       heroSecondary: "Обсудить задачу",
       fact1Title: "Авторские игры",
       fact1Text: "Собственные миры и механики",
@@ -47,6 +47,10 @@ window.DARLES_SITE = {
       useCase3Text: "Персональный интерактивный проект делает подарок, событие или презентацию более эмоциональными.",
       useCase4Title: "Проверить идею",
       useCase4Text: "Игровой прототип позволяет быстро оценить механику и направление до разработки большого проекта.",
+
+      servicesEyebrow: "Услуги",
+      servicesTitle: "Разработка игр и интерактивных веб-продуктов",
+      servicesLead: "Создаём авторские игры, прототипы, мини-игры и веб-проекты с игровыми механиками — от персональной идеи до решения для сообщества или бизнеса.",
 
       gamesEyebrow: "Игры и разработка",
       gamesTitle: "Игры и игровые решения",
@@ -132,7 +136,7 @@ window.DARLES_SITE = {
         status: "Под заказ",
         title: "Прототип механики",
         description: "Рабочая проверка игровой идеи: управление, основной цикл, интерфейс и базовая обратная связь.",
-        duration: "7–14 дней",
+        duration: "1–14 дней",
         tags: ["Прототип", "MVP", "Тест идеи"],
         url: ""
       },
@@ -141,7 +145,7 @@ window.DARLES_SITE = {
         status: "Под заказ",
         title: "Мини-игра под задачу",
         description: "Короткая браузерная игра для события, сообщества, презентации, акции или продвижения продукта.",
-        duration: "10–20 дней",
+        duration: "3–20 дней",
         tags: ["Мини-игра", "Брендинг", "Web"],
         url: ""
       }
@@ -153,7 +157,7 @@ window.DARLES_SITE = {
         status: "Под заказ",
         title: "Персональный интерактивный проект",
         description: "Поздравление, приглашение, квест или история с выбором, музыкой, заданиями и персональным содержанием.",
-        duration: "3–7 дней",
+        duration: "1–7 дней",
         tags: ["События", "Персонализация", "Ссылка"],
         url: ""
       },
@@ -162,7 +166,7 @@ window.DARLES_SITE = {
         status: "Под заказ",
         title: "Тест, квиз или опрос",
         description: "Интерактивный сценарий с вопросами, ветвлением, подсчётом результата и оформлением под тему или аудиторию.",
-        duration: "4–7 дней",
+        duration: "1–7 дней",
         tags: ["Интерактив", "Результаты", "Контент"],
         url: ""
       },
@@ -183,8 +187,8 @@ window.DARLES_SITE = {
     metaDescription: "Darles Games creates browser video games, game mechanics, prototypes and interactive web products for people, communities and businesses.",
     translations: {
       menuOpen: "Open menu",
-      navGames: "Games",
-      navProducts: "Web products",
+      navServices: "Services",
+      navProjects: "Our products",
       navUseCases: "Use cases",
       navApproach: "Process",
       navTerms: "Terms & FAQ",
@@ -194,7 +198,7 @@ window.DARLES_SITE = {
       heroTitle: "Video games and game mechanics for different goals",
       heroLead: "Darles Games creates browser games, playable prototypes and interactive web products for entertainment, personal events, communities, presentations and promotion.",
       heroNote: "From a single mechanic to a complete project that opens through a link.",
-      heroPrimary: "Games and solutions",
+      heroPrimary: "Services",
       heroSecondary: "Discuss a project",
       fact1Title: "Original games",
       fact1Text: "Distinct worlds and mechanics",
@@ -219,6 +223,10 @@ window.DARLES_SITE = {
       useCase3Text: "A personalised interactive project can make a gift, event or presentation more emotional and memorable.",
       useCase4Title: "Validate an idea",
       useCase4Text: "A playable prototype helps evaluate a mechanic and direction before investing in a larger project.",
+
+      servicesEyebrow: "Services",
+      servicesTitle: "Game and interactive web product development",
+      servicesLead: "We create original games, prototypes, mini-games and web projects with game mechanics — from personal ideas to solutions for communities and businesses.",
 
       gamesEyebrow: "Games and development",
       gamesTitle: "Games and playable solutions",
@@ -304,7 +312,7 @@ window.DARLES_SITE = {
         status: "Custom",
         title: "Mechanics prototype",
         description: "A playable test of a game idea with controls, a core loop, interface and basic feedback.",
-        duration: "7–14 days",
+        duration: "1–14 days",
         tags: ["Prototype", "MVP", "Idea test"],
         url: ""
       },
@@ -313,7 +321,7 @@ window.DARLES_SITE = {
         status: "Custom",
         title: "Goal-focused mini-game",
         description: "A short browser game for an event, community, presentation, campaign or product promotion.",
-        duration: "10–20 days",
+        duration: "3–20 days",
         tags: ["Mini-game", "Branding", "Web"],
         url: ""
       }
@@ -325,7 +333,7 @@ window.DARLES_SITE = {
         status: "Custom",
         title: "Personal interactive project",
         description: "A greeting, invitation, quest or story with choices, music, tasks and personalised content.",
-        duration: "3–7 days",
+        duration: "1–7 days",
         tags: ["Events", "Personalised", "One link"],
         url: ""
       },
@@ -334,7 +342,7 @@ window.DARLES_SITE = {
         status: "Custom",
         title: "Quiz, test or survey",
         description: "An interactive scenario with questions, branching, scoring and a visual style tailored to the topic or audience.",
-        duration: "4–7 days",
+        duration: "1–7 days",
         tags: ["Interaction", "Results", "Content"],
         url: ""
       },

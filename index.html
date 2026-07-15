@@ -15,7 +15,6 @@
 </head>
 <body>
   <canvas id="magic-canvas" aria-hidden="true"></canvas>
-  <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Darles Games">
@@ -29,11 +28,11 @@
     </button>
 
     <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
-      <a href="#games" data-i18n="navGames">Игры</a>
-      <a href="#web-products" data-i18n="navProducts">Веб-продукты</a>
+      <a href="#services" data-i18n="navServices">Услуги</a>
       <a href="#use-cases" data-i18n="navUseCases">Для чего</a>
       <a href="#approach" data-i18n="navApproach">Как работаем</a>
       <a href="#terms" data-i18n="navTerms">Условия и FAQ</a>
+      <a class="nav-projects" href="https://darlesgames.github.io/projects/" target="_blank" rel="noopener noreferrer"><span data-i18n="navProjects">Наши продукты</span><b aria-hidden="true">↗</b></a>
       <div class="language-switcher" aria-label="Language">
         <button type="button" data-language="ru" aria-label="Русский язык">RU</button>
         <span aria-hidden="true">/</span>
@@ -50,7 +49,7 @@
         <h1 id="hero-title" data-i18n="heroTitle">Видеоигры и игровые механики для разных задач</h1>
         <p class="hero-lead" data-i18n="heroLead">Darles Games создаёт браузерные игры, игровые прототипы и интерактивные веб-продукты — для развлечения, личных событий, сообществ, презентаций и продвижения.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#games" data-i18n="heroPrimary">Игры и решения</a>
+          <a class="button button-primary" href="#services" data-i18n="heroPrimary">Услуги</a>
           <a class="button button-secondary" href="#contact" data-i18n="heroSecondary">Обсудить задачу</a>
         </div>
         <p class="hero-note"><span aria-hidden="true">✦</span><span data-i18n="heroNote">От отдельной механики до полноценного проекта, который открывается по ссылке.</span></p>
@@ -107,24 +106,13 @@
 
     <div class="arcane-divider" aria-hidden="true"><span>ᛟ</span></div>
 
-    <section class="catalog section-shell games-section" id="games" aria-labelledby="games-title">
+    <section class="catalog section-shell services-section" id="services" aria-labelledby="services-title">
       <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="gamesEyebrow">Игры и разработка</p>
-        <h2 id="games-title" data-i18n="gamesTitle">Игры и игровые решения</h2>
-        <p data-i18n="gamesLead">От проверки отдельной механики до самостоятельной браузерной игры с собственным стилем, прогрессом и подготовкой к публикации.</p>
+        <p class="eyebrow" data-i18n="servicesEyebrow">Услуги</p>
+        <h2 id="services-title" data-i18n="servicesTitle">Разработка игр и интерактивных веб-продуктов</h2>
+        <p data-i18n="servicesLead">Создаём авторские игры, прототипы, мини-игры и веб-проекты с игровыми механиками — от персональной идеи до решения для сообщества или бизнеса.</p>
       </div>
-      <div class="card-grid" id="games-grid"></div>
-    </section>
-
-    <div class="arcane-divider" aria-hidden="true"><span>✦</span></div>
-
-    <section class="catalog section-shell products-section" id="web-products" aria-labelledby="products-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="productsEyebrow">Интерактивные веб-продукты</p>
-        <h2 id="products-title" data-i18n="productsTitle">Веб-продукты с игровыми механиками</h2>
-        <p data-i18n="productsLead">Проекты для личных событий, сообществ, обучения, презентаций и продвижения — с интерактивом, сюжетом, выбором или игровым действием.</p>
-      </div>
-      <div class="card-grid" id="product-grid"></div>
+      <div class="card-grid services-grid" id="services-grid"></div>
     </section>
 
     <div class="arcane-divider" aria-hidden="true"><span>ᚱ</span></div>

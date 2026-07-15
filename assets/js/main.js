@@ -68,8 +68,8 @@
       button.setAttribute("aria-pressed", String(active));
     });
 
-    renderCards(locale.products || [], "product-grid");
-    renderCards(locale.games || [], "games-grid");
+    const services = [...(locale.games || []), ...(locale.products || [])];
+    renderCards(services, "services-grid");
     renderContacts();
     observeRevealElements();
     try {
@@ -217,10 +217,6 @@
     });
   });
 
-  const glow = document.querySelector(".cursor-glow");
-  window.addEventListener("pointermove", (event) => {
-    if (glow) glow.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-  }, { passive: true });
 
   const canvas = document.getElementById("magic-canvas");
   const context = canvas?.getContext("2d");
