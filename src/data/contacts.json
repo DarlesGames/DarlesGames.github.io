@@ -1,0 +1,15 @@
+{
+  "email": "DarlesGames@yandex.ru",
+  "telegram": {
+    "label": "@ProgrammerLeks",
+    "url": "https://telegram.me/ProgrammerLeks"
+  },
+  "vk": {
+    "label": "Darles Games во VK",
+    "url": "https://vk.ru/darlesgames"
+  },
+  "github": {
+    "label": "github.com/DarlesGames",
+    "url": "https://github.com/DarlesGames"
+  }
+}

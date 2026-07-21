@@ -1,0 +1,128 @@
+{
+  "name": "Darles Games",
+  "url": "https://darlesgames.github.io",
+  "logo": "/images/brand/darles-games-logo.png",
+  "socialImage": "/images/brand/darles-games-logo.png",
+  "ru": {
+    "nav": { "home": "Главная", "services": "Услуги", "approach": "Как работаем", "projects": "Проекты", "cv": "CV", "contact": "Связаться", "menu": "Открыть меню" },
+    "footer": "Игры и интерактивные веб-продукты",
+    "home": {
+      "metaTitle": "Darles Games — игры и игровые механики",
+      "metaDescription": "Darles Games создаёт браузерные видеоигры, игровые механики, прототипы и интерактивные веб-продукты для людей, сообществ и бизнеса.",
+      "eyebrow": "Независимая студия веб-игр",
+      "title": "Видеоигры и игровые механики для разных задач",
+      "lead": "Darles Games создаёт браузерные игры, игровые прототипы и интерактивные веб-продукты — для развлечения, личных событий, сообществ, презентаций и продвижения.",
+      "note": "От отдельной механики до полноценного проекта, который открывается по ссылке.",
+      "primary": "Посмотреть услуги",
+      "secondary": "Обсудить задачу",
+      "facts": [
+        { "title": "Авторские игры", "text": "Собственные миры и механики" },
+        { "title": "Прототипы и MVP", "text": "Проверка игровых идей" },
+        { "title": "Интерактивные продукты", "text": "Для людей и организаций" }
+      ],
+      "trust": ["Игровой подход", "Работает в браузере", "Телефон и компьютер", "Под конкретную задачу"],
+      "useCases": {
+        "eyebrow": "Задачи",
+        "title": "Для чего нужны игры и игровые механики",
+        "lead": "Игровой подход помогает не просто показать информацию, а вовлечь человека в действие, объяснить идею и создать запоминающийся опыт.",
+        "items": [
+          { "icon": "◀", "title": "Привлечь внимание", "text": "Интерактивная механика превращает просмотр в действие и помогает удержать интерес пользователя." },
+          { "icon": "⌁", "title": "Объяснить и показать", "text": "Игра или симуляция может наглядно представить продукт, идею, правила или сложный процесс." },
+          { "icon": "◇", "title": "Создать впечатление", "text": "Персональный интерактивный проект делает подарок, событие или презентацию эмоциональнее." },
+          { "icon": "⬡", "title": "Проверить идею", "text": "Игровой прототип позволяет быстро оценить механику до разработки большого проекта." }
+        ]
+      },
+      "services": { "eyebrow": "Услуги", "title": "Разработка игр и интерактивных веб-продуктов", "lead": "Создаём авторские игры, прототипы, мини-игры и веб-проекты с игровыми механиками — от персональной идеи до решения для сообщества или бизнеса.", "duration": "Ориентировочный срок" },
+      "approach": {
+        "eyebrow": "Процесс", "title": "Как проходит работа над проектом",
+        "items": [
+          { "title": "Фиксируем задачу", "text": "Определяем цель проекта, состав функций, сроки, стоимость и границы правок." },
+          { "title": "Создаём первую версию", "text": "Собираем основную механику, визуальное направление и адаптацию под устройства." },
+          { "title": "Согласовываем развитие", "text": "Показываем рабочие версии, собираем обратную связь и уточняем следующий этап." },
+          { "title": "Передаём результат", "text": "Передаём продукт в выбранном формате или помогаем с публикацией." }
+        ]
+      },
+      "terms": {
+        "eyebrow": "Стоимость и условия", "title": "Гибкие условия под задачу и масштаб проекта", "lead": "Перед началом работы согласуем объём, сроки, стоимость, правки, схему оплаты и формат передачи результата.",
+        "items": [
+          { "title": "Индивидуальная оценка", "text": "Стоимость зависит от механик, контента, дизайна, сроков и требований к публикации." },
+          { "title": "Гибкая схема оплаты", "text": "Формат оплаты выбирается с учётом объёма, длительности и структуры проекта." },
+          { "title": "Промежуточные версии", "text": "Клиент видит рабочие версии и контролирует результат по мере разработки." },
+          { "title": "Финальная передача", "text": "Готовая версия и согласованные материалы передаются после полного расчёта." }
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ", "title": "Частые вопросы",
+        "items": [
+          { "question": "Что можно заказать?", "answer": "Браузерную игру, игровой прототип, отдельную механику, интерактивный веб-продукт, тест, квиз, приглашение или персональный проект." },
+          { "question": "Как рассчитывается стоимость?", "answer": "После обсуждения оцениваются механики, контент, дизайн, сроки и формат публикации. Итоговая сумма фиксируется до начала работы." },
+          { "question": "Как контролируется результат?", "answer": "До старта фиксируются задача, сроки и ожидаемый результат. Во время разработки клиент получает промежуточные версии." },
+          { "question": "Что передаётся после завершения?", "answer": "Опубликованная веб-версия, ZIP-сборка, версия для выбранной площадки или другие заранее согласованные материалы." },
+          { "question": "Можно ли работать с клиентами из других стран?", "answer": "Да. Язык проекта, валюта, способ оплаты и формат передачи согласуются индивидуально." }
+        ]
+      },
+      "contact": { "eyebrow": "Связь", "title": "Обсудим ваш проект", "lead": "Напишите удобным способом. Для первого сообщения достаточно нескольких деталей.", "promptTitle": "Что указать в сообщении", "prompts": ["Какая игра, механика или веб-продукт нужны", "Для кого создаётся проект и какую задачу он решает", "Желаемый срок, примеры и важные ограничения"], "email": "Электронная почта", "telegram": "Написать в Telegram", "vk": "Сообщество VK", "copy": "Скопировать email" }
+    },
+    "projects": { "metaTitle": "Проекты Darles Games", "metaDescription": "Библиотека игр, прототипов, инструментов и долгосрочных проектов Darles Games.", "eyebrow": "Библиотека проектов", "title": "Игры, прототипы и инструменты", "lead": "Опубликованные браузерные игры, эксперименты, настольные проекты и внутренние инструменты студии.", "all": "Все", "html5": "HTML5-игры", "desktop": "Для компьютера", "tools": "Инструменты", "details": "Подробнее", "back": "Ко всем проектам", "solutions": "Что реализовано", "stack": "Технологии и системы", "links": "Ссылки проекта", "linksSoon": "Публичные ссылки появятся позже." }
+  },
+  "en": {
+    "nav": { "home": "Home", "services": "Services", "approach": "Process", "projects": "Projects", "cv": "CV", "contact": "Contact", "menu": "Open menu" },
+    "footer": "Games and interactive web products",
+    "home": {
+      "metaTitle": "Darles Games — games and game mechanics",
+      "metaDescription": "Darles Games creates browser video games, game mechanics, prototypes and interactive web products for people, communities and businesses.",
+      "eyebrow": "Independent web game studio",
+      "title": "Video games and game mechanics for different goals",
+      "lead": "Darles Games creates browser games, playable prototypes and interactive web products for entertainment, personal events, communities, presentations and promotion.",
+      "note": "From a single mechanic to a complete project that opens through a link.",
+      "primary": "Explore services",
+      "secondary": "Discuss a project",
+      "facts": [
+        { "title": "Original games", "text": "Distinct worlds and mechanics" },
+        { "title": "Prototypes and MVPs", "text": "Testing game ideas" },
+        { "title": "Interactive products", "text": "For people and organisations" }
+      ],
+      "trust": ["Game-first approach", "Runs in a browser", "Mobile and desktop", "Built for the task"],
+      "useCases": {
+        "eyebrow": "Use cases", "title": "What games and game mechanics can achieve", "lead": "A game-based approach does more than present information: it invites action, explains ideas and creates a memorable experience.",
+        "items": [
+          { "icon": "◀", "title": "Capture attention", "text": "Interactive mechanics turn passive viewing into action and help maintain the user’s interest." },
+          { "icon": "⌁", "title": "Explain and demonstrate", "text": "A game or simulation can clearly present a product, concept, rules or a complex process." },
+          { "icon": "◇", "title": "Create an impression", "text": "A personalised interactive project can make a gift, event or presentation more memorable." },
+          { "icon": "⬡", "title": "Validate an idea", "text": "A playable prototype helps evaluate a mechanic before investing in a larger project." }
+        ]
+      },
+      "services": { "eyebrow": "Services", "title": "Game and interactive web product development", "lead": "We create original games, prototypes, mini-games and web projects with game mechanics — from personal ideas to solutions for communities and businesses.", "duration": "Estimated timeline" },
+      "approach": {
+        "eyebrow": "Process", "title": "How a project is created",
+        "items": [
+          { "title": "Define the task", "text": "We agree on the project goal, features, timeline, price and revision boundaries." },
+          { "title": "Build the first version", "text": "We create the core mechanic, visual direction and responsive version for target devices." },
+          { "title": "Review the direction", "text": "You receive working versions, provide feedback and approve the next stage." },
+          { "title": "Deliver the result", "text": "The product is delivered in the agreed format or prepared for publication." }
+        ]
+      },
+      "terms": {
+        "eyebrow": "Pricing and terms", "title": "Flexible terms for each project’s goals and scope", "lead": "Before work begins, we agree on scope, timeline, price, revisions, payment structure and delivery format.",
+        "items": [
+          { "title": "Individual estimate", "text": "The price depends on mechanics, content, design, timeline and publishing requirements." },
+          { "title": "Flexible payment structure", "text": "The payment format reflects the size, duration and structure of the project." },
+          { "title": "Intermediate versions", "text": "You receive working versions and can review progress throughout development." },
+          { "title": "Final delivery", "text": "The finished version and agreed materials are delivered after final settlement." }
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ", "title": "Frequently asked questions",
+        "items": [
+          { "question": "What can I order?", "answer": "A browser game, playable prototype, individual game mechanic, interactive web product, quiz, invitation or personalised project." },
+          { "question": "How is the price calculated?", "answer": "Mechanics, content, design, timeline and publishing format are estimated after a short discussion. The total is agreed before work begins." },
+          { "question": "How is progress reviewed?", "answer": "The task, timeline and expected result are agreed in advance. During development, you receive working intermediate versions." },
+          { "question": "What is delivered after completion?", "answer": "A published web version, ZIP build, platform-ready version or other materials agreed in advance." },
+          { "question": "Do you work with international clients?", "answer": "Yes. Project language, currency, payment method and delivery format are agreed individually." }
+        ]
+      },
+      "contact": { "eyebrow": "Contact", "title": "Let’s discuss your project", "lead": "Choose a convenient contact method. A few details are enough for the first message.", "promptTitle": "What to include", "prompts": ["The game, mechanic or web product you need", "Who the project is for and what goal it should achieve", "Preferred deadline, references and key limitations"], "email": "Email", "telegram": "Message on Telegram", "vk": "VK community", "copy": "Copy email" }
+    },
+    "projects": { "metaTitle": "Darles Games projects", "metaDescription": "A library of games, prototypes, tools and long-term Darles Games projects.", "eyebrow": "Project library", "title": "Games, prototypes and tools", "lead": "Released browser games, experiments, desktop projects and internal studio tools.", "all": "All", "html5": "HTML5 games", "desktop": "Desktop", "tools": "Tools", "details": "View project", "back": "All projects", "solutions": "Implemented systems", "stack": "Technology and systems", "links": "Project links", "linksSoon": "Public links will be added later." }
+  }
+}

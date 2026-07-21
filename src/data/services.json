@@ -1,0 +1,74 @@
+[
+  {
+    "icon": "⬡",
+    "group": "games",
+    "title": { "ru": "Авторская веб-игра", "en": "Original web game" },
+    "status": { "ru": "Под заказ", "en": "Custom" },
+    "description": {
+      "ru": "Самостоятельная браузерная игра с игровым циклом, визуальным стилем, прогрессом и подготовкой к публикации.",
+      "en": "A standalone browser game with a core loop, visual style, progression and publishing preparation."
+    },
+    "duration": { "ru": "от 3 недель", "en": "from 3 weeks" },
+    "tags": ["Game design", "Development", "Publishing"]
+  },
+  {
+    "icon": "✦",
+    "group": "games",
+    "title": { "ru": "Прототип механики", "en": "Mechanics prototype" },
+    "status": { "ru": "Под заказ", "en": "Custom" },
+    "description": {
+      "ru": "Рабочая проверка игровой идеи: управление, основной цикл, интерфейс и базовая обратная связь.",
+      "en": "A playable test of a game idea with controls, a core loop, interface and basic feedback."
+    },
+    "duration": { "ru": "1–14 дней", "en": "1–14 days" },
+    "tags": ["Prototype", "MVP", "Idea test"]
+  },
+  {
+    "icon": "◈",
+    "group": "games",
+    "title": { "ru": "Мини-игра под задачу", "en": "Goal-focused mini-game" },
+    "status": { "ru": "Под заказ", "en": "Custom" },
+    "description": {
+      "ru": "Короткая браузерная игра для события, сообщества, презентации, акции или продвижения продукта.",
+      "en": "A short browser game for an event, community, presentation, campaign or product promotion."
+    },
+    "duration": { "ru": "3–20 дней", "en": "3–20 days" },
+    "tags": ["Mini-game", "Branding", "Web"]
+  },
+  {
+    "icon": "✧",
+    "group": "products",
+    "title": { "ru": "Персональный интерактивный проект", "en": "Personal interactive project" },
+    "status": { "ru": "Под заказ", "en": "Custom" },
+    "description": {
+      "ru": "Поздравление, приглашение, квест или история с выбором, музыкой, заданиями и персональным содержанием.",
+      "en": "A greeting, invitation, quest or story with choices, music, tasks and personalised content."
+    },
+    "duration": { "ru": "1–7 дней", "en": "1–7 days" },
+    "tags": ["Events", "Personalisation", "One link"]
+  },
+  {
+    "icon": "⌁",
+    "group": "products",
+    "title": { "ru": "Тест, квиз или опрос", "en": "Quiz, test or survey" },
+    "status": { "ru": "Под заказ", "en": "Custom" },
+    "description": {
+      "ru": "Интерактивный сценарий с вопросами, ветвлением, подсчётом результата и оформлением под тему или аудиторию.",
+      "en": "An interactive scenario with questions, branching, scoring and a visual style tailored to the topic or audience."
+    },
+    "duration": { "ru": "1–7 дней", "en": "1–7 days" },
+    "tags": ["Interaction", "Results", "Content"]
+  },
+  {
+    "icon": "◇",
+    "group": "products",
+    "title": { "ru": "Веб-продукт под задачу", "en": "Task-specific web product" },
+    "status": { "ru": "Под заказ", "en": "Custom" },
+    "description": {
+      "ru": "Интерактивный проект для сообщества, обучения, презентации, мероприятия или продвижения.",
+      "en": "An interactive project for a community, learning experience, presentation, event or promotion."
+    },
+    "duration": { "ru": "от 7 дней", "en": "from 7 days" },
+    "tags": ["Mechanics", "Responsive", "Custom"]
+  }
+]

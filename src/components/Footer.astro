@@ -1,0 +1,30 @@
+---
+import contacts from '../data/contacts.json';
+import site from '../data/site.json';
+
+interface Props {
+  lang: 'ru' | 'en';
+}
+
+const { lang } = Astro.props;
+const root = lang === 'ru' ? '/' : '/en/';
+---
+
+<footer class="site-footer">
+  <div class="footer-brand-wrap">
+    <a class="brand footer-brand" href={root}>
+      <img src={site.logo} width="42" height="42" alt="" />
+      <span>Darles Games</span>
+    </a>
+    <p>{site[lang].footer}</p>
+  </div>
+  <nav aria-label={lang === 'ru' ? 'Навигация в подвале' : 'Footer navigation'}>
+    <a href={`${root}projects/`}>{site[lang].nav.projects}</a>
+    <a href={`${root}cv/`}>{site[lang].nav.cv}</a>
+    <a href={contacts.github.url} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <button class="footer-back-to-top" type="button" data-back-to-top>
+      {lang === 'ru' ? 'Наверх ↑' : 'Back to top ↑'}
+    </button>
+  </nav>
+  <p class="copyright">© {new Date().getFullYear()} Darles Games</p>
+</footer>

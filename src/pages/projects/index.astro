@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import site from '../../data/site.json';
+
+type Locale = 'ru' | 'en';
+interface Props { lang?: Locale }
+
+const lang: Locale = Astro.props.lang ?? 'ru';
+const copy = site[lang].projects;
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} {lang} page="projects" image="/images/projects/hero-magic-gamepad.webp">
+  <section class="projects-hero section-shell" aria-labelledby="projects-title">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="spark-dot"></span>{copy.eyebrow}</p>
+      <h1 id="projects-title">{copy.title}</h1>
+      <p class="hero-lead">{copy.lead}</p>
+      <div class="project-count"><strong>{projects.length}</strong><span>{lang === 'ru' ? 'проектов в библиотеке' : 'projects in the library'}</span></div>
+    </div>
+    <div class="projects-hero-art reveal"><img src="/images/projects/hero-magic-gamepad.webp" alt="" width="800" height="800" /></div>
+  </section>
+
+  <section class="section-shell projects-catalog" aria-label={copy.title} data-project-catalog data-locale={lang}>
+    <div class="project-toolbar reveal">
+      <div class="project-filters" role="group" aria-label={lang === 'ru' ? 'Фильтр проектов' : 'Project filter'}>
+        <button class="is-active" type="button" data-filter="all" aria-pressed="true">{copy.all}</button>
+        <button type="button" data-filter="html5" aria-pressed="false">{copy.html5}</button>
+        <button type="button" data-filter="desktop" aria-pressed="false">{copy.desktop}</button>
+        <button type="button" data-filter="tools" aria-pressed="false">{copy.tools}</button>
+      </div>
+      <label class="project-search">
+        <span class="sr-only">{lang === 'ru' ? 'Поиск по проектам' : 'Search projects'}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"></path>
+        </svg>
+        <input
+          type="search"
+          data-project-search
+          placeholder={lang === 'ru' ? 'Название, жанр, технология…' : 'Title, genre, technology…'}
+          aria-label={lang === 'ru' ? 'Поиск по проектам' : 'Search projects'}
+          autocomplete="off"
+        />
+      </label>
+    </div>
+    <div class="project-grid" data-project-grid>
+      {projects.map((project) => <ProjectCard {project} {lang} detailsLabel={copy.details} />)}
+    </div>
+    <div class="empty-filter" data-empty-filter role="status" aria-live="polite" hidden>
+      <span aria-hidden="true">✧</span>
+      <strong>{lang === 'ru' ? 'Материалы для раздела готовятся' : 'Materials for this section are being prepared'}</strong>
+      <p>{lang === 'ru'
+        ? 'Раздел будет пополняться по мере публикации и оформления проектов.'
+        : 'This section will be updated as projects are published and documented.'}</p>
+    </div>
+  </section>
+
+  <script>
+    const catalog = document.querySelector<HTMLElement>('[data-project-catalog]');
+    const filterButtons = catalog?.querySelectorAll<HTMLButtonElement>('[data-filter]') ?? [];
+    const cards = catalog?.querySelectorAll<HTMLElement>('.project-card[data-category][data-search]') ?? [];
+    const searchInput = catalog?.querySelector<HTMLInputElement>('[data-project-search]');
+    const empty = catalog?.querySelector<HTMLElement>('[data-empty-filter]');
+    const locale = catalog?.dataset.locale === 'ru' ? 'ru-RU' : 'en-US';
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    const updateProjects = () => {
+      let visible = 0;
+      cards.forEach((card) => {
+        const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
+        const matchesSearch = !searchQuery || (card.dataset.search ?? '').includes(searchQuery);
+        const show = matchesFilter && matchesSearch;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (empty) empty.hidden = visible > 0;
+    };
+
+    filterButtons.forEach((button) => button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter ?? 'all';
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      updateProjects();
+    }));
+
+    searchInput?.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim().toLocaleLowerCase(locale);
+      updateProjects();
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import site from '../data/site.json';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: 'ru' | 'en';
+}
+
+const { project, lang } = Astro.props;
+const data = project.data;
+const copy = site[lang].projects;
+const projectsRoot = lang === 'ru' ? '/projects/' : '/en/projects/';
+---
+
+<BaseLayout title={`${data.title[lang]} — Darles Games`} description={data.short[lang]} {lang} page="projects" image={data.cover || site.socialImage} type="article">
+  <article class="project-detail section-shell">
+    <a class="back-link" href={projectsRoot}><span aria-hidden="true">←</span> {copy.back}</a>
+    <header class="project-detail-header reveal">
+      <div class="project-detail-copy">
+        <p class="eyebrow"><span class="spark-dot"></span>{data.type[lang]}</p>
+        <h1>{data.title[lang]}</h1>
+        <p class="hero-lead">{data.short[lang]}</p>
+        <div class="project-detail-meta">
+          <span class="status-badge">{data.statusLabel[lang]}</span>
+          <span>{data.category === 'html5' ? 'HTML5' : data.category === 'desktop' ? 'Desktop' : 'Tool'}</span>
+        </div>
+      </div>
+      <div class:list={['project-detail-cover', `accent-${data.accent}`]}>
+        {data.cover ? <img src={data.cover} alt={data.title[lang]} width="960" height="540" /> : <span class="cover-placeholder"><i>✦</i><b>Darles Games</b></span>}
+      </div>
+    </header>
+
+    <div class="project-detail-grid">
+      <section class="prose-panel reveal">
+        <p>{data.details[lang]}</p>
+      </section>
+      <aside class="stack-panel reveal">
+        <h2>{copy.stack}</h2>
+        <div class="tag-list">{data.stack.map((item) => <span>{item}</span>)}</div>
+      </aside>
+    </div>
+
+    <section class="project-solutions reveal">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">✦ Darles Games</p>
+        <h2>{copy.solutions}</h2>
+      </div>
+      <ol class="solution-list">
+        {data.solutions[lang].map((solution, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><p>{solution}</p></li>)}
+      </ol>
+    </section>
+
+    <section class="project-links-panel reveal">
+      <div>
+        <p class="eyebrow">{copy.links}</p>
+        <h2>{data.title[lang]}</h2>
+      </div>
+      {data.links.length ? (
+        <div class="project-link-list">
+          {data.links.map((link) => <a class="button button-secondary" href={link.url} target="_blank" rel="noopener noreferrer">{link.label[lang]} ↗</a>)}
+        </div>
+      ) : <p class="muted-note">{copy.linksSoon}</p>}
+    </section>
+  </article>
+</BaseLayout>

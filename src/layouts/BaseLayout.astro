@@ -1,0 +1,104 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MagicBackground from '../components/MagicBackground.astro';
+import site from '../data/site.json';
+import '../styles/global.css';
+import '../styles/components.css';
+import '../styles/effects.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'ru' | 'en';
+  page: 'home' | 'projects' | 'cv';
+  image?: string;
+  type?: 'website' | 'profile' | 'article';
+}
+
+const { title, description, lang, page, image = site.socialImage, type = 'website' } = Astro.props;
+const pathname = Astro.url.pathname;
+const ruPath = lang === 'ru' ? pathname : (pathname.replace(/^\/en(?=\/|$)/, '') || '/');
+const enPath = lang === 'en' ? pathname : `/en${pathname}`.replace(/\/+/g, '/');
+const canonical = new URL(pathname, site.url).toString();
+const socialImage = new URL(image, site.url).toString();
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': page === 'cv' ? 'ProfilePage' : 'WebPage',
+  name: title,
+  description,
+  url: canonical,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: site.name,
+    url: site.url,
+  },
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0418" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ru" href={new URL(ruPath, site.url)} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, site.url)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(ruPath, site.url)} />
+    <link rel="icon" type="image/png" href="/favicon/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:locale" content={lang === 'ru' ? 'ru_RU' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{lang === 'ru' ? 'Перейти к содержимому' : 'Skip to content'}</a>
+    <MagicBackground />
+    <Header {lang} {page} {ruPath} {enPath} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer {lang} />
+
+    <script>
+      const revealElements = document.querySelectorAll<HTMLElement>('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealElements.forEach((element) => element.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.08 });
+        revealElements.forEach((element) => observer.observe(element));
+      }
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll<HTMLButtonElement>('[data-back-to-top]').forEach((button) => {
+        button.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: reducedMotion ? 'auto' : 'smooth',
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

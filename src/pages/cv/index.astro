@@ -1,0 +1,10 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import CvLayout from '../../layouts/CvLayout.astro';
+
+const cv = await getEntry('cv', 'ru');
+if (!cv) throw new Error('Russian CV content was not found');
+const projects = await getCollection('projects');
+---
+
+<CvLayout {cv} {projects} />
