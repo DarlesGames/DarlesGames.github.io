@@ -20,6 +20,7 @@ const firstSkill = data.skillGroups[0]?.skills[0];
 ---
 
 <BaseLayout title={data.metaTitle} description={data.metaDescription} {lang} page="cv" image="/images/cv/asteron.webp" type="profile">
+  <div data-cv-interactive>
   <section class="cv-hero section-shell" aria-labelledby="cv-title">
     <div class="hero-copy reveal">
       <p class="eyebrow"><span class="spark-dot"></span>{data.eyebrow}</p>
@@ -28,6 +29,9 @@ const firstSkill = data.skillGroups[0]?.skills[0];
       <p class="hero-lead">{data.lead}</p>
       <div class="hero-actions">
         <a class="button button-primary" href="#skills">{lang === 'ru' ? 'Открыть дерево навыков' : 'Explore the skill tree'}</a>
+        <button class="button button-secondary" type="button" data-show-classic aria-controls="classic-cv">
+          {lang === 'ru' ? 'Показать классическое резюме' : 'Show classic CV'}
+        </button>
         <a class="button button-secondary" href={data.pdf} download>{data.downloadPdf}</a>
       </div>
       <div class="hero-facts cv-metrics">
@@ -134,6 +138,84 @@ const firstSkill = data.skillGroups[0]?.skills[0];
       </div>
     </div>
   </section>
+  </div>
+
+  <section class="classic-cv-shell" id="classic-cv" data-cv-classic aria-labelledby="classic-cv-title" hidden>
+    <div class="classic-cv-actions">
+      <button class="button button-secondary compact" type="button" data-show-interactive>
+        {lang === 'ru' ? 'Показать интерактивное резюме' : 'Show interactive CV'}
+      </button>
+      <a class="button button-primary compact" href={data.pdf} download>{data.downloadPdf}</a>
+    </div>
+
+    <article class="resume-paper">
+      <header class="resume-head">
+        <div>
+          <p class="resume-alias">LEKS / ASTERON</p>
+          <h1 id="classic-cv-title">{data.name}</h1>
+          <p class="resume-role">{data.role}</p>
+          <p class="resume-subrole">Founder of Darles Games · Full-cycle product development</p>
+        </div>
+        <img src="/images/cv/cv-photo.webp" alt={lang === 'ru' ? 'Алексей Спирин' : 'Aleksey Spirin'} width="178" height="178" />
+      </header>
+
+      <div class="resume-contact-line">
+        <a href={`mailto:${contacts.email}`}>{contacts.email}</a>
+        <a href={contacts.telegram.url} target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href={contacts.github.url} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href={lang === 'ru' ? '/projects/' : '/en/projects/'}>{lang === 'ru' ? 'Портфолио' : 'Portfolio'}</a>
+      </div>
+
+      <section class="resume-section">
+        <h2>{lang === 'ru' ? 'Профессиональный профиль' : 'Professional profile'}</h2>
+        <p>{data.profile.intro}</p>
+      </section>
+
+      <section class="resume-section">
+        <h2>{data.skillsTitle}</h2>
+        <div class="resume-columns">
+          {data.skillGroups.map((group) => (
+            <div>
+              <h3>{group.title}</h3>
+              <ul>{group.skills.map((skill) => <li>{skill.name} — {skill.rank}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>{data.experienceTitle}</h2>
+        {data.experience.map((item) => (
+          <article class="resume-job">
+            <div class="resume-job-head"><h3>{item.role}</h3><span>{item.date}</span></div>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </section>
+
+      <section class="resume-section">
+        <h2>{data.projectsTitle}</h2>
+        <div class="resume-projects">
+          {selected.map((project) => (
+            <article>
+              <h3>{project.data.title[lang]}</h3>
+              <p>{project.data.short[lang]}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>{data.toolsTitle}</h2>
+        <p>{data.tools.join(', ')}.</p>
+      </section>
+
+      <section class="resume-section resume-interests">
+        <h2>{data.hobbiesTitle}</h2>
+        <p>{data.hobbies.map((hobby) => hobby.title).join(' · ')}</p>
+      </section>
+    </article>
+  </section>
 
   <script>
     const nodes = document.querySelectorAll<HTMLButtonElement>('.skill-node');
@@ -149,5 +231,25 @@ const firstSkill = data.skillGroups[0]?.skills[0];
       if (text) text.textContent = node.dataset.skillDescription ?? '';
       if (evidence) evidence.textContent = node.dataset.skillEvidence ?? '';
     }));
+
+    const interactiveCv = document.querySelector<HTMLElement>('[data-cv-interactive]');
+    const classicCv = document.querySelector<HTMLElement>('[data-cv-classic]');
+    const showClassic = document.querySelector<HTMLButtonElement>('[data-show-classic]');
+    const showInteractive = document.querySelector<HTMLButtonElement>('[data-show-interactive]');
+
+    const setClassicView = (enabled: boolean) => {
+      if (!interactiveCv || !classicCv) return;
+      interactiveCv.hidden = enabled;
+      classicCv.hidden = !enabled;
+      const focusTarget = enabled ? showInteractive : showClassic;
+      requestAnimationFrame(() => {
+        focusTarget?.focus({ preventScroll: true });
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+      });
+    };
+
+    showClassic?.addEventListener('click', () => setClassicView(true));
+    showInteractive?.addEventListener('click', () => setClassicView(false));
   </script>
 </BaseLayout>

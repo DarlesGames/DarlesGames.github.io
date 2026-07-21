@@ -15,7 +15,7 @@
     "ru": "В разработке",
     "en": "In development"
   },
-  "featured": false,
+  "featured": true,
   "accent": "magic",
   "cover": "/images/projects/magotetris.webp",
   "short": {

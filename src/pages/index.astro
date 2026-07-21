@@ -1,5 +1,7 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import contacts from '../data/contacts.json';
 import services from '../data/services.json';
@@ -12,6 +14,10 @@ const lang: Locale = Astro.props.lang ?? 'ru';
 const copy = site[lang];
 const home = copy.home;
 const projectsPath = lang === 'ru' ? '/projects/' : '/en/projects/';
+const featuredProjects = (await getCollection('projects'))
+  .filter((project) => project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
 ---
 
 <BaseLayout title={home.metaTitle} description={home.metaDescription} {lang} page="home">
@@ -71,6 +77,28 @@ const projectsPath = lang === 'ru' ? '/projects/' : '/en/projects/';
   </section>
 
   <div class="arcane-divider" aria-hidden="true"><span>ᚱ</span></div>
+
+  <section class="section-shell" aria-labelledby="featured-projects-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">{lang === 'ru' ? 'Избранные работы' : 'Featured work'}</p>
+      <h2 id="featured-projects-title">{lang === 'ru' ? 'Избранные проекты' : 'Featured projects'}</h2>
+      <p>{lang === 'ru'
+        ? 'Игры и технические решения Darles Games — от опубликованных HTML5-проектов до развивающихся игровых систем.'
+        : 'Darles Games titles and technical solutions, from released HTML5 projects to evolving game systems.'}</p>
+    </div>
+    <div class="project-grid featured-project-grid">
+      {featuredProjects.map((project) => (
+        <ProjectCard {project} {lang} compact detailsLabel={site[lang].projects.details} />
+      ))}
+    </div>
+    <div class="center-action reveal">
+      <a class="button button-secondary" href={projectsPath}>
+        {lang === 'ru' ? 'Все проекты' : 'All projects'} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="arcane-divider" aria-hidden="true"><span>ᛟ</span></div>
 
   <section class="section-shell" id="approach" aria-labelledby="approach-title">
     <div class="section-heading reveal"><p class="eyebrow">{home.approach.eyebrow}</p><h2 id="approach-title">{home.approach.title}</h2></div>

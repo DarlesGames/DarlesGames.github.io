@@ -22,7 +22,9 @@ const root = lang === 'ru' ? '/' : '/en/';
     <a href={`${root}projects/`}>{site[lang].nav.projects}</a>
     <a href={`${root}cv/`}>{site[lang].nav.cv}</a>
     <a href={contacts.github.url} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    <a href="#top">{lang === 'ru' ? 'Наверх ↑' : 'Back to top ↑'}</a>
+    <button class="footer-back-to-top" type="button" data-back-to-top>
+      {lang === 'ru' ? 'Наверх ↑' : 'Back to top ↑'}
+    </button>
   </nav>
   <p class="copyright">© {new Date().getFullYear()} Darles Games</p>
 </footer>

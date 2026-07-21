@@ -88,6 +88,17 @@ const structuredData = {
         }, { threshold: 0.08 });
         revealElements.forEach((element) => observer.observe(element));
       }
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll<HTMLButtonElement>('[data-back-to-top]').forEach((button) => {
+        button.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: reducedMotion ? 'auto' : 'smooth',
+          });
+        });
+      });
     </script>
   </body>
 </html>

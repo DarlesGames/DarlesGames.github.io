@@ -11,9 +11,23 @@ interface Props {
 const { project, lang, detailsLabel, compact = false } = Astro.props;
 const data = project.data;
 const root = lang === 'ru' ? '/projects/' : '/en/projects/';
+const searchText = [
+  data.title[lang],
+  data.type[lang],
+  data.short[lang],
+  data.details[lang],
+  data.statusLabel[lang],
+  data.category,
+  ...data.stack,
+  ...data.solutions[lang],
+].join(' ').toLocaleLowerCase(lang === 'ru' ? 'ru-RU' : 'en-US');
 ---
 
-<article class:list={['project-card', `accent-${data.accent}`, { 'project-card-compact': compact }]} data-category={data.category}>
+<article
+  class:list={['project-card', `accent-${data.accent}`, { 'project-card-compact': compact }]}
+  data-category={data.category}
+  data-search={searchText}
+>
   <a class="project-cover" href={`${root}${project.id}/`} aria-label={`${detailsLabel}: ${data.title[lang]}`}>
     {data.cover ? (
       <img src={data.cover} alt="" width="720" height="405" loading="lazy" decoding="async" />
