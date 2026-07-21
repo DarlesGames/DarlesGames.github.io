@@ -1,41 +1,46 @@
-# Darles Games
+# Astro Starter Kit: Basics
 
-Official website and portfolio of **Darles Games**, an independent studio creating browser games and interactive web products.
+```sh
+npm create astro@latest -- --template basics
+```
 
-## About the studio
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-Darles Games develops digital projects that combine web technologies, game mechanics and interactive storytelling.
+## 🚀 Project Structure
 
-Main areas:
+Inside of your Astro project, you'll see the following folders and files:
 
-* browser and HTML5 games;
-* interactive greetings and invitations;
-* quizzes, tests and surveys;
-* promotional and branded mini-games;
-* prototypes and playable game mechanics.
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
 
-The products are created for private customers, communities, creators and businesses. Most projects work directly in the browser and can be opened through a regular link without installation.
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-## Founder
+## 🧞 Commands
 
-Darles Games was founded by **Leks**, an independent video game developer and game designer.
+All commands are run from the root of the project, from a terminal:
 
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 👀 Want to learn more?
 
-## Contacts
-
-* Telegram: [ProgrammerLeks](https://telegram.me/ProgrammerLeks)
-* VK: [Darles Games](https://vk.ru/darlesgames)
-* Email: [Darlesgames@yandex.ru](mailto:Darlesgames@yandex.ru)
-
-## Repository purpose
-
-This repository contains the public website of Darles Games.
-
-Individual demonstrations, prototypes and game mechanics may be published in separate repositories and linked from the main website.
-
-## Copyright
-
-Copyright © 2026 Darles Games. All rights reserved.
-
-The studio name, logo, visual materials, texts and original project assets may not be reused or redistributed without permission.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
