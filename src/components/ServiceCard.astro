@@ -1,0 +1,34 @@
+---
+interface Service {
+  icon: string;
+  title: { ru: string; en: string };
+  status: { ru: string; en: string };
+  description: { ru: string; en: string };
+  duration: { ru: string; en: string };
+  tags: string[];
+}
+
+interface Props {
+  service: Service;
+  lang: 'ru' | 'en';
+  durationLabel: string;
+}
+
+const { service, lang, durationLabel } = Astro.props;
+---
+
+<article class="service-card reveal">
+  <div class="card-topline">
+    <span class="card-glyph" aria-hidden="true">{service.icon}</span>
+    <span class="status-badge">{service.status[lang]}</span>
+  </div>
+  <h3>{service.title[lang]}</h3>
+  <p>{service.description[lang]}</p>
+  <dl class="service-meta">
+    <dt>{durationLabel}</dt>
+    <dd>{service.duration[lang]}</dd>
+  </dl>
+  <div class="tag-list" aria-label="Tags">
+    {service.tags.map((tag) => <span>{tag}</span>)}
+  </div>
+</article>

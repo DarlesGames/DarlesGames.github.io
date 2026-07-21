@@ -1,41 +1,30 @@
 # Darles Games
 
-Official website and portfolio of **Darles Games**, an independent studio creating browser games and interactive web products.
+Единый статический сайт студии Darles Games на Astro. Он объединяет главный сайт, библиотеку проектов и интерактивное CV.
 
-## About the studio
+Основные маршруты:
 
-Darles Games develops digital projects that combine web technologies, game mechanics and interactive storytelling.
+- `/`, `/projects/`, `/cv/` — русская версия;
+- `/en/`, `/en/projects/`, `/en/cv/` — английская версия;
+- `/projects/[slug]/` и `/en/projects/[slug]/` — страницы, автоматически создаваемые из Markdown.
 
-Main areas:
+Проекты находятся в `src/content/projects/`, данные CV — в `src/content/cv/`, общие настройки и контакты — в `src/data/`.
 
-* browser and HTML5 games;
-* interactive greetings and invitations;
-* quizzes, tests and surveys;
-* promotional and branded mini-games;
-* prototypes and playable game mechanics.
+## Команды
 
-The products are created for private customers, communities, creators and businesses. Most projects work directly in the browser and can be opened through a regular link without installation.
+```sh
+npm install
+npm run build
+npm run check
+```
 
-## Founder
+Для разработки запускайте сервер в фоновом режиме согласно `AGENTS.md`:
 
-Darles Games was founded by **Leks**, an independent video game developer and game designer.
+```sh
+astro dev --background
+astro dev status
+astro dev logs
+astro dev stop
+```
 
-
-
-## Contacts
-
-* Telegram: [ProgrammerLeks](https://telegram.me/ProgrammerLeks)
-* VK: [Darles Games](https://vk.ru/darlesgames)
-* Email: [Darlesgames@yandex.ru](mailto:Darlesgames@yandex.ru)
-
-## Repository purpose
-
-This repository contains the public website of Darles Games.
-
-Individual demonstrations, prototypes and game mechanics may be published in separate repositories and linked from the main website.
-
-## Copyright
-
-Copyright © 2026 Darles Games. All rights reserved.
-
-The studio name, logo, visual materials, texts and original project assets may not be reused or redistributed without permission.
+`npm run check` выполняет production-сборку и затем проверяет обязательные маршруты и все внутренние `href`/`src` в статическом результате.

@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import site from '../../data/site.json';
+
+type Locale = 'ru' | 'en';
+interface Props { lang?: Locale }
+
+const lang: Locale = Astro.props.lang ?? 'ru';
+const copy = site[lang].projects;
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} {lang} page="projects" image="/images/projects/hero-magic-gamepad.webp">
+  <section class="projects-hero section-shell" aria-labelledby="projects-title">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="spark-dot"></span>{copy.eyebrow}</p>
+      <h1 id="projects-title">{copy.title}</h1>
+      <p class="hero-lead">{copy.lead}</p>
+      <div class="project-count"><strong>{projects.length}</strong><span>{lang === 'ru' ? 'проектов в библиотеке' : 'projects in the library'}</span></div>
+    </div>
+    <div class="projects-hero-art reveal"><img src="/images/projects/hero-magic-gamepad.webp" alt="" width="800" height="800" /></div>
+  </section>
+
+  <section class="section-shell projects-catalog" aria-label={copy.title}>
+    <div class="project-filters reveal" role="group" aria-label={lang === 'ru' ? 'Фильтр проектов' : 'Project filter'}>
+      <button class="is-active" type="button" data-filter="all">{copy.all}</button>
+      <button type="button" data-filter="html5">{copy.html5}</button>
+      <button type="button" data-filter="desktop">{copy.desktop}</button>
+      <button type="button" data-filter="tools">{copy.tools}</button>
+    </div>
+    <div class="project-grid" data-project-grid>
+      {projects.map((project) => <ProjectCard {project} {lang} detailsLabel={copy.details} />)}
+    </div>
+    <p class="empty-filter" data-empty-filter hidden>{lang === 'ru' ? 'В этой категории пока нет проектов.' : 'There are no projects in this category yet.'}</p>
+  </section>
+
+  <script>
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const cards = document.querySelectorAll<HTMLElement>('.project-card[data-category]');
+    const empty = document.querySelector<HTMLElement>('[data-empty-filter]');
+    filterButtons.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.dataset.filter ?? 'all';
+      let visible = 0;
+      filterButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (empty) empty.hidden = visible > 0;
+    }));
+  </script>
+</BaseLayout>

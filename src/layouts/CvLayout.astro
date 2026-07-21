@@ -1,0 +1,153 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import contacts from '../data/contacts.json';
+import site from '../data/site.json';
+
+interface Props {
+  cv: CollectionEntry<'cv'>;
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { cv, projects } = Astro.props;
+const data = cv.data;
+const lang = data.locale;
+const selected = data.selectedProjects
+  .map((id) => projects.find((project) => project.id === id))
+  .filter((project): project is CollectionEntry<'projects'> => Boolean(project));
+const firstSkill = data.skillGroups[0]?.skills[0];
+---
+
+<BaseLayout title={data.metaTitle} description={data.metaDescription} {lang} page="cv" image="/images/cv/asteron.webp" type="profile">
+  <section class="cv-hero section-shell" aria-labelledby="cv-title">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="spark-dot"></span>{data.eyebrow}</p>
+      <h1 id="cv-title">{data.name}<small>{data.alias}</small></h1>
+      <p class="hero-role">{data.role}</p>
+      <p class="hero-lead">{data.lead}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#skills">{lang === 'ru' ? 'Открыть дерево навыков' : 'Explore the skill tree'}</a>
+        <a class="button button-secondary" href={data.pdf} download>{data.downloadPdf}</a>
+      </div>
+      <div class="hero-facts cv-metrics">
+        {data.metrics.map((metric) => <article><strong>{metric.title}</strong><span>{metric.text}</span></article>)}
+      </div>
+    </div>
+    <div class="cv-portrait reveal">
+      <div class="portrait-runes" aria-hidden="true"><span>ᛟ</span><span>✦</span><span>ᚱ</span></div>
+      <img src="/images/cv/asteron.webp" alt={data.portraitAlt} width="720" height="900" />
+      <div class="portrait-caption"><span>{data.classLabel}</span><strong>{data.classValue}</strong></div>
+    </div>
+  </section>
+
+  <section class="section-shell" aria-labelledby="profile-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">{lang === 'ru' ? 'Лист персонажа' : 'Character sheet'}</p>
+      <h2 id="profile-title">{data.profile.title}</h2>
+    </div>
+    <div class="cv-profile-grid">
+      <article class="game-panel reveal">
+        <p class="panel-intro">{data.profile.intro}</p>
+        <dl class="identity-list">
+          <div><dt>{data.profile.specializationLabel}</dt><dd>{data.profile.specialization}</dd></div>
+          <div><dt>{data.profile.studioLabel}</dt><dd>{data.profile.studio}</dd></div>
+          <div><dt>{data.profile.rolesLabel}</dt><dd>{data.profile.roles}</dd></div>
+          <div><dt>{data.profile.learningLabel}</dt><dd>{data.profile.learning}</dd></div>
+        </dl>
+        <h3>{data.toolsTitle}</h3>
+        <div class="tag-list tool-cloud">{data.tools.map((tool) => <span>{tool}</span>)}</div>
+      </article>
+      <article class="game-panel reveal">
+        <h3>{data.statsTitle}</h3>
+        <div class="stat-list">
+          {data.stats.map((stat) => <div class="stat-row"><strong>{stat.name}</strong><div class="stat-track"><i style={`width:${stat.level}%`}></i></div><span>{stat.rank}</span></div>)}
+        </div>
+        <p class="muted-note">{data.statsNote}</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="arcane-divider" aria-hidden="true"><span>✦</span></div>
+
+  <section class="section-shell" id="skills" aria-labelledby="skills-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">{data.skillsEyebrow}</p>
+      <h2 id="skills-title">{data.skillsTitle}</h2>
+      <p>{data.skillsLead}</p>
+    </div>
+    <div class="skill-layout">
+      <div class="skill-tree reveal">
+        {data.skillGroups.map((group) => (
+          <section class="skill-branch">
+            <h3>{group.title}</h3>
+            <div class="skill-nodes">
+              {group.skills.map((skill, skillIndex) => (
+                <button class:list={['skill-node', { 'is-active': group === data.skillGroups[0] && skillIndex === 0 }]} type="button" data-skill-name={skill.name} data-skill-glyph={skill.glyph} data-skill-description={skill.description} data-skill-evidence={skill.evidence}>
+                  <span class="skill-node-icon">{skill.glyph}</span><span><strong>{skill.name}</strong><small>{skill.rank}</small></span>
+                </button>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      <aside class="skill-detail game-panel reveal" aria-live="polite">
+        <span class="panel-kicker">{data.selectedSkill}</span>
+        <div class="skill-detail-icon" data-skill-detail-icon>{firstSkill?.glyph}</div>
+        <h3 data-skill-detail-title>{firstSkill?.name}</h3>
+        <p data-skill-detail-text>{firstSkill?.description}</p>
+        <div class="skill-evidence" data-skill-detail-evidence>{firstSkill?.evidence}</div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="arcane-divider" aria-hidden="true"><span>ᛟ</span></div>
+
+  <section class="section-shell" aria-labelledby="experience-title">
+    <div class="section-heading reveal"><p class="eyebrow">{data.experienceEyebrow}</p><h2 id="experience-title">{data.experienceTitle}</h2></div>
+    <div class="quest-log">
+      {data.experience.map((item, index) => <article class="quest-card reveal"><span class="quest-marker">{String(index + 1).padStart(2, '0')}</span><div><p class="quest-date">{item.date}</p><h3>{item.role}</h3><p>{item.text}</p></div></article>)}
+    </div>
+  </section>
+
+  <section class="section-shell" aria-labelledby="cv-projects-title">
+    <div class="section-heading reveal"><p class="eyebrow">{data.projectsEyebrow}</p><h2 id="cv-projects-title">{data.projectsTitle}</h2></div>
+    <div class="project-grid cv-project-grid">
+      {selected.map((project) => <ProjectCard {project} {lang} compact detailsLabel={site[lang].projects.details} />)}
+    </div>
+    <div class="center-action"><a class="button button-secondary" href={lang === 'ru' ? '/projects/' : '/en/projects/'}>{lang === 'ru' ? 'Открыть библиотеку проектов' : 'Open project library'}</a></div>
+  </section>
+
+  <section class="section-shell" aria-labelledby="hobbies-title">
+    <div class="section-heading reveal"><p class="eyebrow">{data.hobbiesEyebrow}</p><h2 id="hobbies-title">{data.hobbiesTitle}</h2></div>
+    <div class="hobby-grid">{data.hobbies.map((hobby) => <article class="hobby-card reveal"><span>{hobby.icon}</span><strong>{hobby.title}</strong></article>)}</div>
+  </section>
+
+  <section class="section-shell contact-section" aria-labelledby="cv-contact-title">
+    <div class="contact-panel reveal">
+      <div><p class="eyebrow">{data.contactEyebrow}</p><h2 id="cv-contact-title">{data.contactTitle}</h2><p>{data.contactLead}</p></div>
+      <div class="contact-links">
+        <a href={`mailto:${contacts.email}`}><span>Email</span><strong>{contacts.email}</strong></a>
+        <a href={contacts.telegram.url} target="_blank" rel="noopener noreferrer"><span>Telegram</span><strong>{contacts.telegram.label}</strong></a>
+        <a href={contacts.github.url} target="_blank" rel="noopener noreferrer"><span>GitHub</span><strong>{contacts.github.label}</strong></a>
+        <a href={lang === 'ru' ? '/projects/' : '/en/projects/'}><span>{lang === 'ru' ? 'Портфолио' : 'Portfolio'}</span><strong>darlesgames.github.io/projects</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const nodes = document.querySelectorAll<HTMLButtonElement>('.skill-node');
+    const title = document.querySelector<HTMLElement>('[data-skill-detail-title]');
+    const icon = document.querySelector<HTMLElement>('[data-skill-detail-icon]');
+    const text = document.querySelector<HTMLElement>('[data-skill-detail-text]');
+    const evidence = document.querySelector<HTMLElement>('[data-skill-detail-evidence]');
+    nodes.forEach((node) => node.addEventListener('click', () => {
+      nodes.forEach((item) => item.classList.remove('is-active'));
+      node.classList.add('is-active');
+      if (title) title.textContent = node.dataset.skillName ?? '';
+      if (icon) icon.textContent = node.dataset.skillGlyph ?? '';
+      if (text) text.textContent = node.dataset.skillDescription ?? '';
+      if (evidence) evidence.textContent = node.dataset.skillEvidence ?? '';
+    }));
+  </script>
+</BaseLayout>

@@ -1,0 +1,52 @@
+<canvas id="magic-canvas" aria-hidden="true"></canvas>
+<div class="ambient-glow ambient-glow-one" aria-hidden="true"></div>
+<div class="ambient-glow ambient-glow-two" aria-hidden="true"></div>
+
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>('#magic-canvas');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (canvas && !reduceMotion) {
+    const context = canvas.getContext('2d');
+    let width = 0;
+    let height = 0;
+    let stars: Array<{ x: number; y: number; radius: number; velocity: number; alpha: number; green: boolean }> = [];
+
+    const resize = () => {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = canvas.width = window.innerWidth * ratio;
+      height = canvas.height = window.innerHeight * ratio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      stars = Array.from({ length: Math.min(100, Math.floor(window.innerWidth / 11)) }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: (Math.random() * 1.2 + 0.25) * ratio,
+        velocity: (Math.random() * 0.12 + 0.025) * ratio,
+        alpha: Math.random() * 0.55 + 0.12,
+        green: Math.random() > 0.77,
+      }));
+    };
+
+    const draw = () => {
+      context?.clearRect(0, 0, width, height);
+      stars.forEach((star) => {
+        star.y -= star.velocity;
+        if (star.y < -4) {
+          star.y = height + 4;
+          star.x = Math.random() * width;
+        }
+        if (!context) return;
+        context.beginPath();
+        context.fillStyle = star.green ? `rgba(131,245,44,${star.alpha})` : `rgba(193,122,255,${star.alpha})`;
+        context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        context.fill();
+      });
+      window.requestAnimationFrame(draw);
+    };
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+    draw();
+  }
+</script>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://darlesgames.github.io/sitemap.xml

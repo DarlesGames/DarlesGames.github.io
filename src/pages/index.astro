@@ -1,11 +1,130 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import contacts from '../data/contacts.json';
+import services from '../data/services.json';
+import site from '../data/site.json';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+type Locale = 'ru' | 'en';
+interface Props { lang?: Locale }
+
+const lang: Locale = Astro.props.lang ?? 'ru';
+const copy = site[lang];
+const home = copy.home;
+const projectsPath = lang === 'ru' ? '/projects/' : '/en/projects/';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={home.metaTitle} description={home.metaDescription} {lang} page="home">
+  <section class="home-hero section-shell" aria-labelledby="hero-title">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="spark-dot"></span>{home.eyebrow}</p>
+      <h1 id="hero-title">{home.title}</h1>
+      <p class="hero-lead">{home.lead}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#services">{home.primary}</a>
+        <a class="button button-secondary" href="#contact">{home.secondary}</a>
+      </div>
+      <p class="hero-note"><span aria-hidden="true">✦</span>{home.note}</p>
+      <div class="hero-facts">
+        {home.facts.map((fact) => <article><strong>{fact.title}</strong><span>{fact.text}</span></article>)}
+      </div>
+    </div>
+    <div class="hero-sigil" aria-hidden="true">
+      <span class="sigil-orbit orbit-one"><i></i></span>
+      <span class="sigil-orbit orbit-two"><i></i></span>
+      <span class="sigil-core">✦</span>
+      <span class="sigil-rune rune-one">ᛟ</span>
+      <span class="sigil-rune rune-two">ᚱ</span>
+      <span class="sigil-rune rune-three">◇</span>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label={lang === 'ru' ? 'Преимущества' : 'Advantages'}>
+    {home.trust.map((item, index) => <><span>{item}</span>{index < home.trust.length - 1 && <i aria-hidden="true">✦</i>}</>)}
+  </section>
+
+  <div class="arcane-divider" aria-hidden="true"><span>✦</span></div>
+
+  <section class="section-shell" aria-labelledby="use-cases-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">{home.useCases.eyebrow}</p>
+      <h2 id="use-cases-title">{home.useCases.title}</h2>
+      <p>{home.useCases.lead}</p>
+    </div>
+    <div class="feature-grid">
+      {home.useCases.items.map((item) => <article class="feature-card reveal"><span class="card-glyph" aria-hidden="true">{item.icon}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
+    </div>
+  </section>
+
+  <div class="arcane-divider" aria-hidden="true"><span>ᛟ</span></div>
+
+  <section class="section-shell" id="services" aria-labelledby="services-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">{home.services.eyebrow}</p>
+      <h2 id="services-title">{home.services.title}</h2>
+      <p>{home.services.lead}</p>
+    </div>
+    <div class="service-grid">
+      {services.map((service) => <ServiceCard {service} {lang} durationLabel={home.services.duration} />)}
+    </div>
+    <div class="center-action reveal"><a class="button button-secondary" href={projectsPath}>{copy.nav.projects} <span aria-hidden="true">→</span></a></div>
+  </section>
+
+  <div class="arcane-divider" aria-hidden="true"><span>ᚱ</span></div>
+
+  <section class="section-shell" id="approach" aria-labelledby="approach-title">
+    <div class="section-heading reveal"><p class="eyebrow">{home.approach.eyebrow}</p><h2 id="approach-title">{home.approach.title}</h2></div>
+    <div class="steps-grid">
+      {home.approach.items.map((item, index) => <article class="step-card reveal"><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="section-shell terms-wrap" aria-labelledby="terms-title">
+    <div class="section-heading reveal"><p class="eyebrow">{home.terms.eyebrow}</p><h2 id="terms-title">{home.terms.title}</h2><p>{home.terms.lead}</p></div>
+    <div class="feature-grid">
+      {home.terms.items.map((item, index) => <article class="feature-card reveal"><span class="card-glyph">{['◀', '◇', '⌁', '⬡'][index]}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="section-shell faq-section" aria-labelledby="faq-title">
+    <div class="section-heading reveal"><p class="eyebrow">{home.faq.eyebrow}</p><h2 id="faq-title">{home.faq.title}</h2></div>
+    <div class="faq-list">
+      {home.faq.items.map((item, index) => <details class="faq-item reveal" open={index === 0}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}
+    </div>
+  </section>
+
+  <section class="section-shell contact-section" id="contact" aria-labelledby="contact-title">
+    <div class="contact-panel reveal">
+      <div class="contact-copy">
+        <p class="eyebrow">{home.contact.eyebrow}</p>
+        <h2 id="contact-title">{home.contact.title}</h2>
+        <p>{home.contact.lead}</p>
+        <div class="contact-buttons">
+          <a class="button button-primary" href={contacts.telegram.url} target="_blank" rel="noopener noreferrer">{home.contact.telegram} ↗</a>
+          <a class="button button-secondary" href={contacts.vk.url} target="_blank" rel="noopener noreferrer">{home.contact.vk} ↗</a>
+        </div>
+      </div>
+      <div class="contact-brief">
+        <h3>{home.contact.promptTitle}</h3>
+        <ul>{home.contact.prompts.map((prompt) => <li>{prompt}</li>)}</ul>
+        <div class="email-row">
+          <a href={`mailto:${contacts.email}`}><span>{home.contact.email}</span><strong>{contacts.email}</strong></a>
+          <button type="button" data-copy-email={contacts.email} data-copy-label={home.contact.copy}>{home.contact.copy}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-email]');
+    copyButton?.addEventListener('click', async () => {
+      const email = copyButton.dataset.copyEmail ?? '';
+      try {
+        await navigator.clipboard.writeText(email);
+        copyButton.textContent = document.documentElement.lang === 'ru' ? 'Email скопирован' : 'Email copied';
+      } catch {
+        copyButton.textContent = email;
+      }
+    });
+  </script>
+</BaseLayout>
