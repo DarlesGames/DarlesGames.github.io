@@ -29,7 +29,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         <button class="is-active" type="button" data-filter="all" aria-pressed="true">{copy.all}</button>
         <button type="button" data-filter="html5" aria-pressed="false">{copy.html5}</button>
         <button type="button" data-filter="desktop" aria-pressed="false">{copy.desktop}</button>
-        <button type="button" data-filter="tools" aria-pressed="false">{copy.tools}</button>
+        <button type="button" data-filter="mechanics" aria-pressed="false">{copy.mechanics}</button>
+        <button type="button" data-filter="interactive" aria-pressed="false">{copy.interactive}</button>
+        <button type="button" data-filter="cases" aria-pressed="false">{copy.cases}</button>
       </div>
       <label class="project-search">
         <span class="sr-only">{lang === 'ru' ? 'Поиск по проектам' : 'Search projects'}</span>

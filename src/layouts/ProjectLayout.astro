@@ -12,6 +12,13 @@ const { project, lang } = Astro.props;
 const data = project.data;
 const copy = site[lang].projects;
 const projectsRoot = lang === 'ru' ? '/projects/' : '/en/projects/';
+const categoryLabel = {
+  html5: copy.html5,
+  desktop: copy.desktop,
+  mechanics: copy.mechanics,
+  interactive: copy.interactive,
+  cases: copy.cases,
+}[data.category];
 ---
 
 <BaseLayout title={`${data.title[lang]} — Darles Games`} description={data.short[lang]} {lang} page="projects" image={data.cover || site.socialImage} type="article">
@@ -24,7 +31,7 @@ const projectsRoot = lang === 'ru' ? '/projects/' : '/en/projects/';
         <p class="hero-lead">{data.short[lang]}</p>
         <div class="project-detail-meta">
           <span class="status-badge">{data.statusLabel[lang]}</span>
-          <span>{data.category === 'html5' ? 'HTML5' : data.category === 'desktop' ? 'Desktop' : 'Tool'}</span>
+          <span>{categoryLabel}</span>
         </div>
       </div>
       <div class:list={['project-detail-cover', `accent-${data.accent}`]}>
