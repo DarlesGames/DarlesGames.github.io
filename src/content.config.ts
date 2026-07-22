@@ -31,7 +31,7 @@ const projects = defineCollection({
   schema: z.object({
     order: z.number().int().nonnegative(),
     title: localizedText,
-    category: z.enum(['html5', 'desktop', 'tools']),
+    category: z.enum(['html5', 'desktop', 'mechanics', 'interactive', 'cases']),
     type: localizedText,
     status: z.enum(['released', 'development', 'internal']),
     statusLabel: localizedText,

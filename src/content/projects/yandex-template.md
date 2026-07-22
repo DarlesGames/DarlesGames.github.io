@@ -2,13 +2,13 @@
 {
   "order": 8,
   "title": {
-    "ru": "Шаблон HTML5-игры для платформ",
-    "en": "HTML5 Game Platform Template"
+    "ru": "Мультиплатформенная архитектура HTML5-игр с адаптерами SDK",
+    "en": "Multi-Platform HTML5 Game Architecture with SDK Adapters"
   },
-  "category": "tools",
+  "category": "cases",
   "type": {
-    "ru": "Техническое решение",
-    "en": "Technical solution"
+    "ru": "Архитектурное решение",
+    "en": "Architecture solution"
   },
   "status": "internal",
   "statusLabel": {
@@ -19,39 +19,44 @@
   "accent": "green",
   "cover": "",
   "short": {
-    "ru": "Переиспользуемая основа для портретных браузерных игр с SDK, рекламой, сохранениями и локальным fallback-режимом.",
-    "en": "A reusable foundation for portrait browser games with platform SDK, advertising, saves and a local fallback mode."
+    "ru": "Архитектура браузерной игры, в которой игровая логика отделена от функций конкретной площадки.",
+    "en": "A browser game architecture that separates game logic from platform-specific functionality."
   },
   "details": {
-    "ru": "Шаблон сокращает повторную техническую работу при выпуске новых игр. В него вынесены инициализация платформы, пауза, звук, реклама, облачные и локальные сохранения, лидерборды и адаптивный UI.",
-    "en": "The template reduces repeated technical work when releasing new games. It centralizes platform initialization, pause behavior, audio, advertising, cloud and local saves, leaderboards and adaptive UI."
+    "ru": "Архитектура браузерной игры, в которой игровая логика отделена от функций конкретной площадки. Подключение рекламы, сохранений, лидербордов и авторизации выполняется через отдельные адаптеры, что упрощает публикацию одной игры на нескольких платформах.",
+    "en": "A browser game architecture that separates game logic from platform-specific functionality. Advertising, saves, leaderboards and authentication are connected through dedicated adapters, making it easier to publish one game across multiple platforms."
   },
   "solutions": {
     "ru": [
-      "Единый SDK-адаптер и работа без платформы",
-      "Предсказуемые сценарии паузы и рекламы",
-      "Повторное использование между новыми HTML5-проектами"
+      "Игровая логика не зависит от SDK конкретной площадки",
+      "Реклама, сохранения, лидерборды и авторизация подключаются через отдельные адаптеры",
+      "Одна кодовая база публикуется на нескольких игровых платформах"
     ],
     "en": [
-      "A unified SDK adapter with an offline/local mode",
-      "Predictable pause and advertising scenarios",
-      "Reuse across new HTML5 projects"
+      "Game logic remains independent of any specific platform SDK",
+      "Advertising, saves, leaderboards and authentication are connected through dedicated adapters",
+      "A single codebase can be published across multiple game platforms"
     ]
   },
   "stack": [
     "HTML5",
     "CSS",
     "JavaScript",
+    "TypeScript",
+    "Canvas/WebGL",
     "Vite",
-    "SDK Adapter",
-    "Git"
+    "Node.js",
+    "Yandex Games SDK",
+    "GamePush",
+    "VK SDK",
+    "Platform adapters"
   ],
   "links": []
 }
 ---
 
-# Шаблон HTML5-игры для платформ / HTML5 Game Platform Template
+# Мультиплатформенная архитектура HTML5-игр с адаптерами SDK / Multi-Platform HTML5 Game Architecture with SDK Adapters
 
-Переиспользуемая основа для портретных браузерных игр с SDK, рекламой, сохранениями и локальным fallback-режимом.
+Архитектура браузерной игры, в которой игровая логика отделена от функций конкретной площадки. Подключение рекламы, сохранений, лидербордов и авторизации выполняется через отдельные адаптеры, что упрощает публикацию одной игры на нескольких платформах.
 
-A reusable foundation for portrait browser games with platform SDK, advertising, saves and a local fallback mode.
+A browser game architecture that separates game logic from platform-specific functionality. Advertising, saves, leaderboards and authentication are connected through dedicated adapters, making it easier to publish one game across multiple platforms.
