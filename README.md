@@ -1,16 +1,16 @@
 # Darles Games
 
-Единый статический сайт студии Darles Games на Astro. Он объединяет главный сайт, библиотеку проектов и интерактивное CV.
+A unified static website for Darles Games studio on Astro. It combines the main website, project library, and interactive CV.
 
-Основные маршруты:
+Main routes:
 
-- `/`, `/projects/`, `/cv/` — русская версия;
-- `/en/`, `/en/projects/`, `/en/cv/` — английская версия;
-- `/projects/[slug]/` и `/en/projects/[slug]/` — страницы, автоматически создаваемые из Markdown.
+- `/`, `/projects/`, `/cv/` — Russian version;
+- `/en/`, `/en/projects/`, `/en/cv/` — English version;
+- `/projects/[slug]/` and `/en/projects/[slug]/` — pages automatically generated from Markdown.
 
-Проекты находятся в `src/content/projects/`, данные CV — в `src/content/cv/`, общие настройки и контакты — в `src/data/`.
+Projects are located in `src/content/projects/`, CV data is in `src/content/cv/`, general settings and contacts are in `src/data/`.
 
-## Команды
+## Commands
 
 ```sh
 npm install
@@ -18,7 +18,7 @@ npm run build
 npm run check
 ```
 
-Для разработки запускайте сервер в фоновом режиме согласно `AGENTS.md`:
+For development, run the server in the background according to `AGENTS.md`:
 
 ```sh
 astro dev --background
@@ -27,4 +27,4 @@ astro dev logs
 astro dev stop
 ```
 
-`npm run check` выполняет production-сборку и затем проверяет обязательные маршруты и все внутренние `href`/`src` в статическом результате.
+`npm run check` performs a production build and then checks the required routes and all internal `href`/`src` in the static output.
