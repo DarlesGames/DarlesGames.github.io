@@ -11,6 +11,10 @@ interface Props {
 const { project, lang, detailsLabel, compact = false } = Astro.props;
 const data = project.data;
 const root = lang === 'ru' ? '/projects/' : '/en/projects/';
+const href = data.cardUrl ?? `${root}${project.id}/`;
+const externalLinkProps = data.cardUrl
+  ? { target: '_blank', rel: 'noopener noreferrer' }
+  : {};
 const searchText = [
   data.title[lang],
   data.type[lang],
@@ -28,7 +32,7 @@ const searchText = [
   data-category={data.category}
   data-search={searchText}
 >
-  <a class="project-cover" href={`${root}${project.id}/`} aria-label={`${detailsLabel}: ${data.title[lang]}`}>
+  <a class="project-cover" href={href} aria-label={`${detailsLabel}: ${data.title[lang]}`} {...externalLinkProps}>
     {data.cover ? (
       <img src={data.cover} alt="" width="720" height="405" loading="lazy" decoding="async" />
     ) : (
@@ -38,11 +42,11 @@ const searchText = [
   </a>
   <div class="project-card-body">
     <p class="project-type">{data.type[lang]}</p>
-    <h2><a href={`${root}${project.id}/`}>{data.title[lang]}</a></h2>
+    <h2><a href={href} {...externalLinkProps}>{data.title[lang]}</a></h2>
     <p>{data.short[lang]}</p>
     <div class="tag-list">
       {data.stack.slice(0, compact ? 3 : 4).map((tag) => <span>{tag}</span>)}
     </div>
-    <a class="text-link" href={`${root}${project.id}/`}>{detailsLabel} <span aria-hidden="true">→</span></a>
+    <a class="text-link" href={href} {...externalLinkProps}>{detailsLabel} <span aria-hidden="true">→</span></a>
   </div>
 </article>

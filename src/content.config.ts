@@ -38,6 +38,7 @@ const projects = defineCollection({
     featured: z.boolean(),
     accent: z.string(),
     cover: z.string(),
+    cardUrl: z.string().url().optional(),
     short: localizedText,
     details: localizedText,
     solutions: z.object({
